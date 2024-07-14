@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-color: rgb(1, 113, 148);
+  --green-color: rgb(10, 146, 10);
+  --blue-bg: rgb(46, 90, 117, 0.15);
+  --purple-color: rgb(94,  76, 254);
+  --br-color: rgb(46, 90, 117, 0.15);
+}
+
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #fff; 
+}
+
+::-webkit-scrollbar-thumb {
+  background:var(--primary-color); 
+  border-radius: 10px;
+}
+
+
+
