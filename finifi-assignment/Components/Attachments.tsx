@@ -1,3 +1,4 @@
+"use client"
 import { Paperclip } from 'lucide-react'
 const Attachments = () => {
     return (

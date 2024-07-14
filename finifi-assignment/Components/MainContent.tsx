@@ -1,3 +1,4 @@
+"use client"
 import { Paperclip, CloudUpload } from 'lucide-react'
 import { Switch, DatePicker } from "@nextui-org/react";
 import Attachments from './Attachments';

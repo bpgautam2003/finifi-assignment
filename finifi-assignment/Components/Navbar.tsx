@@ -1,3 +1,4 @@
+"use client"
 import { Bell, Menu } from 'lucide-react';
 import { Avatar } from "@nextui-org/react";
 import Sidebar from './Sidebar';

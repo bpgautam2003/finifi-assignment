@@ -1,3 +1,4 @@
+"use client"
 import MainContent from "./MainContent"
 import Navbar from "@/Components/Navbar";
 import { ArrowLeft, Info, ReceiptText, RotateCcw, MessageCircle, Download, Forward, MonitorCheck, ChevronRight } from 'lucide-react';
@@ -27,11 +28,11 @@ const MainBody: React.FC = () => {
                     </div>
 
                     <div className="flex gap-4 mx-2">
-                        <button className="flex h-8 items-center bg-[#f5faf4] text-green-color px-1 py-1 rounded-md text-xs lg:gap-2 lg:px-2">
+                        <button className="flex h-8 items-center bg-[#f5faf4] text-green-color px-1 py-1 rounded-md text-xs lg:gap-2 lg:px-2" aria-label="Click to perform action">
                             <MonitorCheck size={20} className="cursor-pointer h-4 lg:h-12 hidden md:flex lg:flex" />
                             Save Draft
                         </button>
-                        <button className="flex h-8 items-center bg-primary-color text-white p-1 rounded-md text-xs justify-center lg:text-sm lg:px-2">
+                        <button className="flex h-8 items-center bg-primary-color text-white p-1 rounded-md text-xs justify-center lg:text-sm lg:px-2" aria-label="Click to perform action">
                             Submit
                             <ChevronRight size={20} className="cursor-pointer h-4 lg:h-12" />
                         </button>
