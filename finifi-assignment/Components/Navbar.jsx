@@ -1,10 +1,10 @@
 "use client"
 import { Bell, Menu } from 'lucide-react';
-import { Avatar } from "@nextui-org/react";
+// import { Avatar } from "@nextui-org/react";
 import Sidebar from './Sidebar';
 import { useState } from 'react';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
     const [showSidebar, setShowSidebar] = useState(false);
 
     const toggleSidebar = () => {
@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
                 </div>
                 <div className="border-br-color border h-8 mx-2"></div>
                 <div className="flex gap-2 items-center">
-                    <Avatar className="w-9 h-9 cursor-pointer" src="/images/profile.png" />
+                    <div className="w-9 h-9 cursor-pointer bg-[url('/images/profile.png')] bg-cover" ></div>
                     <div className="hidden lg:flex lg:flex-col">
                         <h3 className="text-sm font-semibold">Rohit Sharma</h3>
                         <p className="text-xs">rohit.sharma@growquest.in</p>

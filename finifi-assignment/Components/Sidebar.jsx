@@ -2,12 +2,7 @@
 import { useState } from 'react';
 import { Compass, FileText, Settings, X } from 'lucide-react';
 
-interface SidebarProps {
-  showSidebar: boolean;
-  toggleSidebar: () => void;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ showSidebar, toggleSidebar }) => {
+const Sidebar = ({ showSidebar, toggleSidebar }) => {
   const [activeIcon, setActiveIcon] = useState('FileText');
 
   return (

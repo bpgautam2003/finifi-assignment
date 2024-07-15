@@ -2,9 +2,11 @@
 import { Paperclip, CloudUpload } from 'lucide-react'
 import { Switch, DatePicker } from "@nextui-org/react";
 import Attachments from './Attachments';
-import { useState } from 'react';
+import { useState} from 'react';
+
 const MainContent = () => {
     const [showTabs, setShowTabs] = useState('vendor-details');
+    
     return (
         <div className="relative w-full h-full border-br-color-800 border rounded-md overflow-auto lg:mx-2 my-1">
             <div className="sticky w-full top-0 z-20 flex overflow-x-auto bg-white gap-6 border-b-br-color-800 border-b py-2 px-4 items-center">
@@ -12,11 +14,11 @@ const MainContent = () => {
                 <h3 className={`text-xs md:text-sm lg:text-sm text-primary-color cursor-pointer  ${showTabs === 'vendor-details' ? 'font-bold' : ''}`} onClick={() => setShowTabs('vendor-details')}>Vendor form details</h3>
                 <h3 className={`text-xs md:text-sm lg:text-sm text-primary-color cursor-pointer  ${showTabs === 'finance-details' ? 'font-bold' : ''}`} onClick={() => setShowTabs('finance-details')}>Add finance details</h3>
                 <h3 className={`text-xs md:text-sm lg:text-sm text-primary-color cursor-pointer hidden md:flex lg:hidden ${showTabs === 'attachments' ? 'font-bold' : ''}`} onClick={() => setShowTabs('attachments')}>Attachments</h3>
-                <Paperclip size={20} className="text-primary-color cursor-pointer md:hidden lg:hidden" onClick={() => setShowTabs('attachments')} />
+                <Paperclip size={20} className="text-primary-color cursor-pointer md:hidden lg:hidden" onClick={() => setShowTabs('attachments')} aria-label="Attachments" />
             </div>
 
             <div className={`w-full h-full overflow-auto ${showTabs === 'attachments' ? '' : 'hidden'}`}>
-                <Attachments />
+                <Attachments/>
             </div>
 
             <div className={`border-b-br-color border-b pb-4 mb-4 ${showTabs === 'vendor-details' ? '' : 'hidden'}`}>
@@ -27,15 +29,15 @@ const MainContent = () => {
                 <div className="flex flex-wrap gap-2 lg:gap-4 px-2 m-2">
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Vendor ID</h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Legal Name<span className="text-red-600">*</span></h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='legal-name'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Trade Name<span className="text-red-600">*</span></h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Vendor State<span className="text-red-600">*</span></h3>
@@ -57,20 +59,22 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">GST Certificate<span className="text-red-600">*</span></h3>
-                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm ">
+                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm " aria-label="Upload GST Certificate">
                             <CloudUpload size={18} /> Browse or drop files
                         </label>
+
                         <input id="file-upload" type="file" className="hidden" />
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Payment Terms</h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48 ">
                         <h3 className="text-sm">PAN Attachment<span className="text-red-600">*</span></h3>
-                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm ">
+                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm " aria-label="Upload PAN Attachment">
                             <CloudUpload size={18} /> Browse or drop files
                         </label>
+
                         <input id="file-upload" type="file" className="hidden" />
                     </div>
                     <div className="p-2 w-48">
@@ -82,7 +86,7 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-64 lg:w-4/12">
                         <h3 className="text-sm">Vendor address</h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
 
 
@@ -102,9 +106,10 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">MSME Attachment<span className="text-red-600">*</span></h3>
-                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm ">
+                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm " aria-label="Upload MSME Attachment">
                             <CloudUpload size={18} /> Browse or drop files
                         </label>
+
                         <input id="file-upload" type="file" className="hidden" />
                     </div>
                     <div className="p-2 w-48">
@@ -113,14 +118,15 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-56">
                         <h3 className="text-sm">Lower exception certificate</h3>
-                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm ">
+                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm " aria-label="Upload Lower Exception Certificate">
                             <CloudUpload size={18} /> Browse or drop files
                         </label>
+
                         <input id="file-upload" type="file" className="hidden" />
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">LDC Upper limit</h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">LDC Start Date<span className="text-red-600">*</span></h3>
@@ -133,7 +139,7 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">PAN Number</h3>
-                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8 px-2 border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
 
 
@@ -155,38 +161,39 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Location</h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Location GSTIn</h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-56">
                         <h3 className="text-sm">Location GSTIn certificate<span className="text-red-600">*</span></h3>
-                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm ">
+                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm " aria-label="Upload Location GSTIn Certificate">
                             <CloudUpload size={18} /> Browse or drop files
                         </label>
+
                         <input id="file-upload" type="file" className="hidden" />
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">POC Name<span className="text-red-600">*</span></h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">POC Designation<span className="text-red-600">*</span></h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">POC Email ID<span className="text-red-600">*</span></h3>
-                        <input type="email" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="email" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-56">
                         <h3 className="text-sm">POC Mobile Number<span className="text-red-600">*</span></h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-64">
                         <h3 className="text-sm">Address<span className="text-red-600">*</span></h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
 
 
@@ -208,28 +215,33 @@ const MainContent = () => {
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Account Name</h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">Account Number</h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-56">
                         <h3 className="text-sm">Confirm Account Number</h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
                     <div className="p-2 w-48">
                         <h3 className="text-sm">IFSC Code</h3>
-                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2"></input>
+                        <input type="text" className="w-full h-8  border-br-color border rounded-md mt-2" aria-label='vendor-id'></input>
                     </div>
-                    <div className="p-2 w-48">
+                    <div className="p-2 w-56">
                         <h3 className="text-sm">Cancelled Check</h3>
-                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm ">
+                        <label htmlFor="file-upload" className="w-full h-8 border-br-color border rounded-md mt-2 flex gap-1 items-center justify-center cursor-pointer bg-blue-bg text-primary-color text-sm " aria-label="Upload Location GSTIn Certificate">
                             <CloudUpload size={18} /> Browse or drop files
                         </label>
-                        <input id="file-upload" type="file" className="hidden" />
+                        <input
+                            id="file-upload"
+                            name='cancelled-check'
+                            type="file"
+                            className="hidden"
+                            aria-label='file upload'
+                        />
                     </div>
-
                     <div className="p-2 w-56 md:hidden h-6">
 
                     </div>
